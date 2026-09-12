@@ -1,0 +1,282 @@
+```css
+/* Configuração geral */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef5ff;
+    color: #1f2937;
+}
+
+/* Área principal do formulário */
+form {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+}
+
+/* Títulos */
+h2 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #1261a0;
+    border-left: 5px solid #1683d8;
+    padding-left: 10px;
+}
+
+p {
+    color: #4b5563;
+}
+
+/* Inputs, selects e textarea */
+input,
+select,
+textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #f8fbff;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.telefone-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#codigoPais {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+}
+
+#telefone {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 210px;
+    box-sizing: border-box;
+}
+
+#codigoPais:focus,
+#telefone:focus {
+    outline: none;
+    border-color: #e63946;
+}
+
+/* Efeito quando clicar no campo */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #1683d8;
+    box-shadow: 0 0 0 3px rgba(22, 131, 216, 0.15);
+    background: white;
+}
+
+/* Radio buttons */
+input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+    accent-color: #1683d8;
+}
+
+input[type="radio"] + label {
+    margin-right: 15px;
+}
+
+/* Botão */
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #1683d8;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #0d6fba;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #dbe5f0;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* =========================
+   CAIXA DE CONFIRMAÇÃO
+   ========================= */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.overlay.ativo {
+    display: flex;
+}
+
+.caixa-sucesso {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+    animation: aparecer 0.35s ease;
+}
+
+.icone-sucesso {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 20px;
+
+    background: #22c55e;
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.caixa-sucesso h2 {
+    margin-bottom: 15px;
+
+    font-size: 28px;
+}
+
+.caixa-sucesso p {
+    font-size: 17px;
+    line-height: 1.5;
+
+    margin: 10px 0;
+}
+
+.caixa-sucesso strong {
+    font-size: 20px;
+}
+
+#btnContinuar {
+    margin-top: 20px;
+
+    padding: 12px 30px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #e63946;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#btnContinuar:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+
+/* ANIMAÇÃO */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsividade para celular */
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+    form {
+        padding: 20px 15px;
+        border-radius: 10px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
+
+
